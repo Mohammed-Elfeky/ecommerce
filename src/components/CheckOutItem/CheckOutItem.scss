@@ -1,0 +1,32 @@
+.CheckOutItem{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    align-items: center;
+
+    &>div{
+        flex-basis: 20%;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .imagePart{
+        img{
+            width: 100%;
+        }
+    }
+
+    .alignHorizontal{
+        display: flex;
+        justify-content: space-around;
+
+        .leftArrow,.rightArraow{
+            cursor: pointer;
+        }
+    }
+    
+    .remove>div{
+        cursor: pointer;
+    }
+}

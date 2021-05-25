@@ -1,0 +1,16 @@
+.CartItem{
+    display: flex;
+    
+    .imgPart{
+        flex-basis: 20%;
+        img{
+            width: 100%;
+        }
+    }
+
+    .infoPart{
+        flex-basis: 80%;
+        padding-left: 10px;
+        box-sizing: border-box;
+    }
+}

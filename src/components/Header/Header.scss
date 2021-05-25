@@ -1,0 +1,28 @@
+.Header {
+  
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  align-items: center;
+  padding:20px;
+  box-sizing: border-box;
+  position: relative;
+
+  .logo-container{
+      text-decoration: none;
+      color: black;
+  }
+
+  .options {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .option {
+      padding: 10px 15px;
+      cursor: pointer;
+      text-decoration: none;
+      color: black;
+    }
+  }
+}

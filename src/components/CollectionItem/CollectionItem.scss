@@ -1,0 +1,37 @@
+.CollectionItem {
+  flex-basis: 25%;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+
+  .MyButton {
+    opacity: 0.7;
+    position: absolute;
+    display: none;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &:hover {
+    img {
+      opacity: 0.8;
+    }
+
+    .MyButton {
+      opacity: 0.85;
+      display: block;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
+    box-sizing: border-box;
+  }
+}

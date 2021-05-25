@@ -1,0 +1,9 @@
+.Collection{
+    width: 85%;
+    margin: auto;
+
+    .itemsContainer{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
