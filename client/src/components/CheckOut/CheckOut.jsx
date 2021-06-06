@@ -16,6 +16,7 @@ function CheckOut({ cartItems, cartItemTotal }) {
         return <CheckOutItem key={cartItem.id} item={cartItem} />;
       })}
       <h1 className="totalContainer">Total:{cartItemTotal}</h1>
+      <h2 style={{fontWeight:'100',color:'red',textAlign:'center',marginTop:'10px'}}>card:4242424242424242 ,CVC:123, DATE:09/21</h2>
       <div className="checkoutButtonContainer">
         <StripeCheckoutButton price={cartItemTotal} />
       </div>
