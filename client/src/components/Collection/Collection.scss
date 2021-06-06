@@ -4,11 +4,8 @@
 
   .itemsContainer {
     display: flex;
-    @media (max-width: 800px) {
-      & {
-        flex-wrap: wrap;
-      }
-    }
+    flex-wrap: wrap;
+    
     .CollectionItem {
       flex-basis: 25%;
       @media (max-width: 800px) {
