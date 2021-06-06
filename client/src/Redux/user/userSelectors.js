@@ -6,3 +6,13 @@ export const currentUserSelctor=createSelector(
     [userSelector],
     user=>user.currentUser
 )
+
+export const signInErrorSelector=createSelector(
+    [userSelector],
+    user=>user.signInError
+)
+
+export const signUpErrorSelector=createSelector(
+    [userSelector],
+    user=>user.signUpError
+)

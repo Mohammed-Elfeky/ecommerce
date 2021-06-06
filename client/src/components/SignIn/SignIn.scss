@@ -1,5 +1,10 @@
-.SignIn{
-    padding: 15px;
-    box-sizing: border-box;
-    flex-basis: 50%;
+.SignIn {
+  padding: 15px;
+  box-sizing: border-box;
+  flex-basis: 50%;
+  & {
+    @media (max-width: 800px) {
+      flex-basis: 100%;
+    }
+  }
 }

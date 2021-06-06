@@ -52,3 +52,10 @@ export const signupStart = (signupDataObject) => {
         payload: signupDataObject
     }
 }
+
+export const signUpFail=(error)=>{
+    return{
+        type:userTypes.SIGNUP_FAIL,
+        payload:error
+    }
+}

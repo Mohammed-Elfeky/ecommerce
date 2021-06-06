@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
 import {currentUserSelctor} from './Redux/user/userSelectors'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
-
+import spinner from './components/withSpinnerHoc/Spinner-1s-200px.gif'
 const HomePage =lazy(()=> import('./pages/Homepage/Homepage'))
 const Shop =lazy(()=> import('./pages/Shop/Shop'))
 const SignInAndSignUp =lazy(()=> import('./components/SignInAndSignUp/SignInAndSignUp'))
@@ -25,7 +25,7 @@ function App({currentUser,checkUserSession}) {
       <Header/>
        <Switch>
         <ErrorBoundary>
-        <Suspense fallback={<h1>loading......</h1>}>
+        <Suspense fallback={<img src={spinner} style={{textAlign:"center"}}/>}>
           <Route exact path="/" component={HomePage}/>
           <Route path="/shop" component={Shop}/>
           <Route

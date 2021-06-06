@@ -24,10 +24,15 @@ const checkOutInsideCartStyle=css`
     margin-top: auto;
     text-align: center;
 `
-
+const inlineStyle=css`
+    display:inline-block;
+    margin-right:10px;
+    margin-bottom:10px
+`
 
 
 export const MyButtonContainer=styled.div`
+${({makeInline})=> makeInline ? inlineStyle : ''}
 ${props=>props.isCheckOut ? checkOutInsideCartStyle : ''}
 `
 

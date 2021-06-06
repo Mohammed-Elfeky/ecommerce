@@ -1,15 +1,13 @@
 import FormInput from "../MyFromInput/MyFromInput";
 import MyButton from "../MyButton/MyButton";
 import { useState } from "react";
-import {
-  auth,
-  createUserProfileDocument,
-} from "../../FirebaseConfig/FirebaseConfig";
 import "./SignUp.scss";
-import { signupStart } from "../../Redux/user/userActions";
+import { signupStart, signUpFail } from "../../Redux/user/userActions";
 import { connect } from "react-redux";
+import { signUpErrorSelector } from "../../Redux/user/userSelectors";
+import { createStructuredSelector } from "reselect";
 
-function SignUp({ signupStart }) {
+function SignUp({ signupStart, signUpError, signUpFail }) {
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,16 +18,11 @@ function SignUp({ signupStart }) {
 
     //check if the password is  confirmed
     if (password !== confirmPassword) {
-      alert("passwords don't match");
+      signUpFail("passwords don't match");
       return;
     }
 
     signupStart({ email, password, displayName });
-
-    setDisplayName("");
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
   };
   return (
     <div className="SignUp">
@@ -65,8 +58,11 @@ function SignUp({ signupStart }) {
         />
         <MyButton type="submit" content="sign up" />
       </form>
+      <div style={{ textAlign: "center", color: "red" }}>{signUpError}</div>
     </div>
   );
 }
-
-export default connect(null, { signupStart })(SignUp);
+const mapStateToProps = createStructuredSelector({
+  signUpError: signUpErrorSelector,
+});
+export default connect(mapStateToProps, { signupStart, signUpFail })(SignUp);

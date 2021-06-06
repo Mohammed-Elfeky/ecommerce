@@ -18,7 +18,8 @@ import {
     signInSuccess,
     signInFail,
     signOutSuccess,
-    signoutFail
+    signoutFail,
+    signUpFail
 } from './userActions'
 
 export function* getSnapshotFromUserAuth(user,additionalData) {
@@ -102,9 +103,10 @@ export function* signup({payload: {email,password,displayName}}) {
         const {user} = yield auth.createUserWithEmailAndPassword(email, password)
         yield getSnapshotFromUserAuth(user,{displayName})
     } catch (error) {
-        yield put(signInFail(error.message))
+        yield put(signUpFail(error.message))
     }
 }
+
 
 export function* onGoogleSignInStart() {
     yield takeLatest(userTypes.GOOGLE_SIGNIN_START, googleSignin)
@@ -121,6 +123,7 @@ export function* onSignOutStart() {
 export function* onSignupStart() {
     yield takeLatest(userTypes.SIGNUP_START, signup)
 }
+
 
 export function* userSagas() {
     yield all([call(onGoogleSignInStart),

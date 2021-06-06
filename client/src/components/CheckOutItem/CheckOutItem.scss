@@ -3,12 +3,23 @@
     width: 80%;
     margin: auto;
     align-items: center;
+    @media(max-width:555px){
+        &{
+            flex-wrap: wrap;
+        }
+    }
 
     &>div{
         flex-basis: 20%;
         padding: 10px;
         box-sizing: border-box;
         text-align: center;
+
+        @media(max-width:555px){
+            &{
+                flex-basis: 100%;
+            }
+        }
     }
 
     .imagePart{

@@ -1,28 +1,55 @@
 .Header {
-  
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
   align-items: center;
-  padding:20px;
+  padding: 20px;
   box-sizing: border-box;
   position: relative;
+  @media (max-width: 850px) {
+    & {
+      flex-wrap: wrap;
+    }
+  }
 
-  .logo-container{
-      text-decoration: none;
-      color: black;
+  .logo-container {
+    text-decoration: none;
+    color: black;
+    @media (max-width: 850px) {
+      & {
+        flex-basis: 100%;
+        text-align: center;
+      }
+    }
   }
 
   .options {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
+    @media (max-width: 850px) {
+      & {
+        flex-wrap: wrap;
+        flex-basis: 100%;
+        text-align: center;
+      }
+    }
     .option {
       padding: 10px 15px;
       cursor: pointer;
       text-decoration: none;
       color: black;
+      @media (max-width: 850px) {
+        & {
+          flex-basis: 100%;
+        }
+      }
+    }
+
+    .option.last{
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

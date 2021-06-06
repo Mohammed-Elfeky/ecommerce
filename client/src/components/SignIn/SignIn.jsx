@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FormInput from "../MyFromInput/MyFromInput";
 import MyButton from "../MyButton/MyButton";
 import "./SignIn.scss";
@@ -7,15 +7,15 @@ import {
   signInWithEmailStart,
   signInWithGoogleStart,
 } from "../../Redux/user/userActions";
-function SignIn({ signInWithGoogleStart, signInWithEmailStart }) {
+import { signInErrorSelector } from "../../Redux/user/userSelectors";
+import { createStructuredSelector } from "reselect";
+function SignIn({ signInWithGoogleStart, signInWithEmailStart, signInError }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     signInWithEmailStart({ email, password });
-    setEmail("");
-    setPassword("");
   };
   return (
     <div className="SignIn">
@@ -37,17 +37,22 @@ function SignIn({ signInWithGoogleStart, signInWithEmailStart }) {
           label="password"
           required
         />
-        <MyButton type="submit" content="sign in" />
+        <MyButton makeInline type="submit" content="sign in" />
         <MyButton
+          makeInline
           type="button"
           onClick={signInWithGoogleStart}
           content="sign in with google"
         />
       </form>
+      <div style={{ textAlign: "center", color: "red" }}>{signInError}</div>
     </div>
   );
 }
-
-export default connect(null, { signInWithGoogleStart, signInWithEmailStart })(
-  SignIn
-);
+const mapStateToProps = createStructuredSelector({
+  signInError: signInErrorSelector,
+});
+export default connect(mapStateToProps, {
+  signInWithGoogleStart,
+  signInWithEmailStart,
+})(SignIn);

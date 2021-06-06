@@ -1,9 +1,27 @@
-.Collection{
-    width: 85%;
-    margin: auto;
+.Collection {
+  width: 85%;
+  margin: auto;
 
-    .itemsContainer{
-        display: flex;
+  .itemsContainer {
+    display: flex;
+    @media (max-width: 800px) {
+      & {
         flex-wrap: wrap;
+      }
     }
+    .CollectionItem {
+      flex-basis: 25%;
+      @media (max-width: 800px) {
+        & {
+          flex-basis: 50%;
+        }
+      }
+
+      @media (max-width: 450px) {
+        & {
+          flex-basis: 100%;
+        }
+      }
+    }
+  }
 }
